@@ -1,0 +1,19 @@
+import axios from 'axios';
+
+const auth = {
+  method: 'GET',
+  url: 'https://api.themoviedb.org/3/authentication',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNDE4NmQ4YjQ0NDQzNGUwYmNiYTJjMDI4YjllODY2NyIsInN1YiI6IjY1MGFmNjBkMTJjNjA0MDBlMWYxMGY5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bRMQHe4nDxGvCdzmTMR2SQBGWVb9wxs0NbvevNYPjOU'
+  }
+};
+
+axios
+  .request(auth)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });

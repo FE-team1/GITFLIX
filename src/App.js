@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/global.style';
+import router from './routes/router';
+import theme from './styles/theme.style';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  console.log(process.env.NODE_ENV) 
+  // development
+    return (
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          {/* provider */}
+            <GlobalStyles/>
+            <RouterProvider router={router} />
+          {/* provider */}
+        </ThemeProvider>
+      </Provider>
+    );
 }
-
 export default App;
