@@ -1,13 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-// create axios
-// 하나의 파일로 모둘화
-/**
- * @
- */
 export const axiosInstance = axios.create({
-    baseURL: process.env.API_ACCESS_TOKEN,
-    Headers: {
-        Authorization: `Bearer `
-    },
-})
+	baseURL: process.env.REACT_APP_BACKEND_URL,
+	headers: {
+		// format string ${} 변수치환
+		// Bearer JWT인증타입
+		Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
+	}
+});
