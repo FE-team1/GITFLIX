@@ -19,8 +19,8 @@ const MainPage = () => {
         <>
             <Header/>
             <S.Wrapper>
-                {movieList.map(({ id, title, poster_path }) => {
-                    return <OneMovie movie_id={id} title={title} poster_path={poster_path} />;
+                {movieList.map(({ id, title, poster_path, overview, vote_average }) => {
+                    return <OneMovie movie_id={id} title={title} poster_path={poster_path} overview={overview} vote_average={vote_average}/>;
                 })}
             </S.Wrapper>
         </>
@@ -31,6 +31,7 @@ export default MainPage;
 
 const Wrapper  = styled.div`
     margin: 0 4%;
+    padding-top: 100px;
 `
 
 
