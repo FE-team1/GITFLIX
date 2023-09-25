@@ -1,24 +1,59 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { INCREMENT } from '../reducer/count';
+import styled from 'styled-components';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { flexAlignCenter } from '../../styles/common.style';
 
-const Count = () => {
-    /* selector: 내가 원하는 상태를 가지고 오겠다 => redux는 여러가지 전역 상태를 한 번에 관리하므로 그 중에서 원하는 것을 선택 */
-    const count = useSelector((state) => state.count); // 상태생성
-    const dispatch = useDispatch();
-
-    const onPressIncrement = () => {
-        dispatch({
-            type: INCREMENT,
-            payload: 1,
-        });
-    };
-
-    // 0
+const Header = () => {
     return (
-        <div>
-            {count}
-            <button onClick={onPressIncrement}>+</button>
-        </div>
+        <S.Container>
+            <S.Logo src="img/githubicon.png"></S.Logo>
+            <nav>
+                <S.Ul>
+                    <li>Now Playing</li>
+                    <li>Popular</li>
+                    <li>Top Rated</li>
+                    <li>Upcoming</li>
+                </S.Ul>
+            </nav>
+            <S.Input />
+            <AiOutlineSearch />
+        </S.Container>
     );
 };
-export default Count;
+
+export default Header;
+
+const Container = styled.div`
+    ${flexAlignCenter}
+    font-size: 1.2rem;
+    margin: 0 4%;
+    padding-top: 1%;
+`;
+
+const Logo = styled.img`
+    width: 50px;
+    margin-right: 50px;
+`;
+
+const Ul = styled.div`
+    display: flex;
+    padding-right: 700px;
+    li {
+        padding: 10px;
+        font-weight: 500;
+        cursor: pointer;
+        ${flexAlignCenter}
+    }
+`;
+
+const Input = styled.input`
+    outline: none;
+    border-radius: 7px;
+    color: ${({ theme }) => theme.COLORS.black};
+`;
+
+const S = {
+    Logo,
+    Container,
+    Ul,
+    Input,
+};

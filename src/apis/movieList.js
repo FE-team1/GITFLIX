@@ -1,11 +1,11 @@
 import { axiosInstance } from './core';
 
-export const get_movieList = (setMovie) => {
+export const get_movieList = (setMovieList) => {
     axiosInstance
-        .get('/movie/changes')
+        .get('/discover/movie')
         .then((res) => {
             let movie_list = res.data.results;
-            setMovie(movie_list);
+            setMovieList(movie_list);
         })
         .catch((err) => {
             console.log(err);
