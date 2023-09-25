@@ -20,14 +20,19 @@ const Header = () => {
                         <li>Upcoming</li>
                     </S.Ul>
                 </nav>
-                {searchBox ? (
-                    <S.SearchBox>
-                        <S.Input />
-                        <AiOutlineSearch onClick={onClickSearch} size={30} />
-                    </S.SearchBox>
-                ) : (
-                        <AiOutlineSearch onClick={onClickSearch} size={30} />
-                )}
+                    {searchBox ? (
+                        <S.SearchBox>
+                            <S.Input placeholder='제목을 입력하세요'/>
+                            <S.Icon>
+                                <AiOutlineSearch onClick={onClickSearch} size={30} />
+                            </S.Icon>
+                        </S.SearchBox>
+                    ) : (
+                        <S.Icon>
+                            <AiOutlineSearch onClick={onClickSearch} size={30} />
+                        </S.Icon>
+                    )}
+
             </S.Container>
         </S.Wrapper>
     );
@@ -36,6 +41,7 @@ const Header = () => {
 export default Header;
 
 const Wrapper = styled.div`
+    width: 100%;
     position: fixed;
     z-index: 2;
     background-color: black;
@@ -48,18 +54,21 @@ const Container = styled.div`
 `;
 
 const Logo = styled.img`
+    cursor: pointer;
     width: 50px;
-    margin-right: 50px;
+    margin-left: 50px;
+    margin-right: 40px;
 `;
 
 const Ul = styled.div`
     display: flex;
-    padding-right: 600px;
+    padding-right: 590px;
     li {
         padding: 10px;
         font-weight: 500;
         cursor: pointer;
         ${flexAlignCenter}
+        transition:color .2s ease;
         &:hover {
             color: ${({ theme }) => theme.COLORS.primary};
         }
@@ -75,9 +84,13 @@ const SearchBox = styled.div`
 const Input = styled.input`
     border: none;
     outline: none;
-    padding: 5px;
     background-color: transparent;
-    font-size: ${({ theme }) => theme.FONT_SIZE.large};
+    width: 200px;
+    font-size: ${({ theme }) => theme.FONT_SIZE.middle};
+`;
+
+const Icon = styled.div`
+    display: inline-block;
 `;
 
 const S = {
@@ -87,4 +100,5 @@ const S = {
     Ul,
     Input,
     SearchBox,
+    Icon,
 };
