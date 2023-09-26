@@ -13,9 +13,6 @@ const DetailPage = () => {
   useEffect(() => {
     console.log(id);
     get_movieDetail(setDetailMovie, id);
-  }, []);
-
-  useEffect(() => {
     get_image(setImage, id);
   }, []);
 

@@ -39,7 +39,7 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
             <S.Text>
               <S.Title>{title}</S.Title>
               <S.OverView>{overview}</S.OverView>
-              <div>평점: ⭐️{vote_average}</div>
+              <div>rating: ⭐️{vote_average}</div>
             </S.Text>
           ) : (
             ""
@@ -66,6 +66,7 @@ const Img = styled.img`
   transition: all 0.2s linear;
   &:hover {
     transform: scale(1.2);
+    opacity: 0.35;
   }
 `;
 

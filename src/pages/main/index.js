@@ -26,7 +26,7 @@ const MainPage = () => {
   //   };
   return (
     <>
-      <Header />
+      <Header movieList={movieList} setMovieList={setMovieList} />
       <S.Wrapper>
         {/* <Carousel /> */}
         {movieList.map(({ id, title, poster_path, overview, vote_average, backdrop_path }) => {
