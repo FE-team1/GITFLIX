@@ -8,6 +8,8 @@ const Header = () => {
     const onClickSearch = (prev) => {
         setSearchBox((prev) => !prev);
     };
+    
+
     return (
         <S.Wrapper>
             <S.Container>
@@ -43,7 +45,7 @@ export default Header;
 const Wrapper = styled.div`
     width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     background-color: black;
 `;
 
@@ -78,8 +80,8 @@ const Ul = styled.div`
 const SearchBox = styled.div`
     border: 1px solid #fff;
     border-radius: 4px;
+    display: flex;
 `;
-
 
 const Input = styled.input`
     border: none;

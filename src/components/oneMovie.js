@@ -19,15 +19,16 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
         <S.MovieContainer>
             {poster_path ? (
                 <>
-                    <S.Img src={`${imgUrl}${poster_path}`} />
-                    <S.Text>
+                    <S.Poster src={`${imgUrl}${poster_path}`} />
+                    {/* hover시의 효과를 주기위해서 */}
+                    <S.InnerText className="hoverComponent">
                         <S.Title>{title}</S.Title>
                         <S.OverView>{overview}</S.OverView>
-                        <div>평점: ⭐️{vote_average}</div>
-                    </S.Text>
+                        <S.Rating>⭐️ {vote_average}</S.Rating>
+                    </S.InnerText>
                 </>
             ) : (
-                <S.Img src="img/noimage.png"></S.Img>
+                <S.Poster src="img/noimage.png"></S.Poster>
             )}
         </S.MovieContainer>
     );
@@ -35,48 +36,74 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
 
 export default OneMovie;
 
-const MovieContainer = styled.span`
+const MovieContainer = styled.div`
     position: relative;
     display: inline-block;
     margin: 30px 70px;
-`;
-
-const Img = styled.img`
-    border-radius: 4px;
-    transition: all 0.2s linear;
+    cursor: pointer;
+    img {
+        transition: all 0.2s linear;
+    }
     &:hover {
-        transform: scale(1.2);
+        .hoverComponent {
+            opacity: 1;
+        }
+        img {
+            transform: scale(1.15);
+        }
     }
 `;
 
-const Text = styled.div`
-    background-color: transparent;
-    text-align: center;
+const Poster = styled.img`
+    border-radius: 4px;
+`;
+
+const InnerText = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
+    opacity: 0;
+    z-index: 7;
+    width: 115%;
+    height: 115%;
+    padding: 20px;
+    border-radius: 4px;
+    transition: opacity 0.7s;
+    background-color: rgba(180, 20, 220, 0.3);
+    text-align: left;
     transform: translate(-50%, -50%);
-`;
-
-const OverView = styled.div`
-    line-height: 1.2;
-    height: 3.6em;
-    width: 12em;
-    overflow: hidden;
-    text-overflow: ellipsis;
 `;
 
 const Title = styled.span`
     font-size: ${({ theme }) => theme.FONT_SIZE.large};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT.bold};
     width: 300px;
-    align-items: center;
+    padding-bottom: 2%;
 `;
 
+const OverView = styled.div`
+    border-top: 1px solid white;
+    padding-top: 30px;
+    line-height: 1.2;
+    height: 7.5;
+    width: 12em;
+    // 여러줄 말줄임
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    overflow: hidden;
+`;
+
+const Rating = styled.div`
+    padding-top: 50px;
+`
+
 const S = {
-    Img,
+    Poster,
     Title,
     MovieContainer,
     OverView,
-    Text,
+    InnerText,
+    Rating
 };

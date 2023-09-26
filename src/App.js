@@ -5,14 +5,14 @@ import router from './routes/router';
 import theme from './styles/theme.style';
 
 function App() {
-  console.log(process.env.NODE_ENV) 
-  // development
+    console.log(process.env.NODE_ENV);
+    // development
     return (
         <ThemeProvider theme={theme}>
-          {/* provider */}
-            <GlobalStyles/>
-            <RouterProvider router={router} />
-          {/* provider */}
+                {/* provider */}
+                <GlobalStyles />
+                <RouterProvider router={router} />
+                {/* provider */}
         </ThemeProvider>
     );
 }

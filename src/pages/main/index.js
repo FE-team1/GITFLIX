@@ -3,7 +3,6 @@ import { get_movieList } from '../../apis/movieList';
 import OneMovie from '../../components/oneMovie';
 import Header from '../../components/layout/header';
 import styled from 'styled-components';
-import Slider from 'react-slick';
 import Carousel from './components/carousel';
 
 const MainPage = () => {
@@ -21,8 +20,8 @@ const MainPage = () => {
         <>
             <Header />
             <S.Wrapper>
-                {/* <Carousel /> */}
-                {movieList.map(({ id, title, poster_path, overview, vote_average, backdrop_path }) => {
+                <Carousel movieList={movieList} />
+                {movieList.map(({ id, title, poster_path, overview, vote_average }) => {
                     return (
                         <>
                             <OneMovie
@@ -32,7 +31,6 @@ const MainPage = () => {
                                 overview={overview}
                                 vote_average={vote_average}
                             />
-                            {/* <Slider backdrop_path={backdrop_path} /> */}
                         </>
                     );
                 })}
@@ -45,10 +43,10 @@ export default MainPage;
 
 const Wrapper = styled.div`
     margin: 0 10%;
+    max-width: 1460px;
     padding-top: 100px;
-    width: 100%;
-    max-width: 1500px;
-`;
+    width: 100%
+`
 
 const S = {
     Wrapper,
