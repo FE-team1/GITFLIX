@@ -17,7 +17,7 @@ const Header = () => {
       console.log("We click this key", e.key);
       let keyword = e.target.value;
       console.log(keyword);
-      navigate(`/detail/?q=${keyword}`);
+      navigate(`/?q=${keyword}`);
     }
   };
   return (
