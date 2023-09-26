@@ -3,9 +3,6 @@ import { get_movieList } from "../../apis/movieList";
 import OneMovie from "../../components/oneMovie";
 import Header from "../../components/layout/header";
 import styled from "styled-components";
-import Slider from "react-slick";
-import Carousel from "./components/carousel";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const MainPage = () => {
   const [movieList, setMovieList] = useState([]);
