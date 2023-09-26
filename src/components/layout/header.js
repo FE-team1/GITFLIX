@@ -5,10 +5,38 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [searchBox, setSearchBox] = useState(false);
-  const onClickSearch = (prev) => {
-    setSearchBox((prev) => !prev);
-  };
+
+    const [searchBox, setSearchBox] = useState(false);
+    const onClickSearch = (prev) => {
+        setSearchBox((prev) => !prev);
+    };
+    
+
+    return (
+        <S.Wrapper>
+            <S.Container>
+                <S.Logo src="img/githubicon.png"></S.Logo>
+                <nav>
+                    <S.Ul>
+                        <li>Now Playing</li>
+                        <li>Popular</li>
+                        <li>Top Rated</li>
+                        <li>Upcoming</li>
+                    </S.Ul>
+                </nav>
+                    {searchBox ? (
+                        <S.SearchBox>
+                            <S.Input placeholder='제목을 입력하세요'/>
+                            <S.Icon>
+                                <AiOutlineSearch onClick={onClickSearch} size={30} />
+                            </S.Icon>
+                        </S.SearchBox>
+                    ) : (
+                        <S.Icon>
+                            <AiOutlineSearch onClick={onClickSearch} size={30} />
+                        </S.Icon>
+                    )}
+
 
   const navigate = useNavigate();
 
@@ -51,10 +79,12 @@ const Header = () => {
 export default Header;
 
 const Wrapper = styled.div`
-  width: 100%;
-  position: fixed;
-  z-index: 2;
-  background-color: black;
+
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: black;
+
 `;
 
 const Container = styled.div`
@@ -86,8 +116,11 @@ const Ul = styled.div`
 `;
 
 const SearchBox = styled.div`
-  border: 1px solid #fff;
-  border-radius: 4px;
+
+    border: 1px solid #fff;
+    border-radius: 4px;
+    display: flex;
+
 `;
 
 const Input = styled.input`

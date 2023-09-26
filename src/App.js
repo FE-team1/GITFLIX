@@ -6,6 +6,7 @@ import theme from "./styles/theme.style";
 import { QueryClient, QueryClientProvider, useInfiniteQuery } from "@tanstack/react-query";
 
 function App() {
+
   console.log(process.env.NODE_ENV);
   const queryClient = new QueryClient({
     defaultOptions: {},
@@ -35,5 +36,6 @@ function App() {
       </ThemeProvider>
     </QueryClientProvider>
   );
+
 }
 export default App;
