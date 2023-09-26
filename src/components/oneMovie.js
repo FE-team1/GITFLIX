@@ -1,26 +1,53 @@
 import { useEffect, useState } from "react";
 import { get_image } from "../apis/image.api";
 import styled from "styled-components";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { get_movieDetail } from "../apis/detail.api";
 
-const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
+const OneMovie = ({ movie_id, title, poster_path, overview, vote_average, movieList, setMovieList }) => {
   // const [posters, setPosters] = useState([]);
   const [image, setImage] = useState({});
   const imgUrl = "https://image.tmdb.org/t/p/w200";
+  // content, 평점 랜더링 여부를 state로 정의
+  const [isShowContent, setIsShowContent] = useState(false);
+  const [query, setQuery] = useSearchParams();
+  let id = query.get("q");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     get_image(setImage, movie_id);
+    console.log(movie_id);
   }, []);
 
+  const showContent = () => {
+    setIsShowContent(true);
+  };
+
+  const hideContent = () => {
+    setIsShowContent(false);
+  };
+
+  const goToMovieDetail = () => {
+    console.log(movie_id);
+    navigate(`/detail/?q=${movie_id}`);
+    // get_movieDetail(setDetailMovie, movie_id);
+  };
+
   return (
-    <S.MovieContainer>
+    <S.MovieContainer onMouseOver={showContent} onMouseLeave={hideContent} onClick={goToMovieDetail}>
       {poster_path ? (
         <>
           <S.Img src={`${imgUrl}${poster_path}`} />
-          <S.Text>
-            <S.Title>{title}</S.Title>
-            <S.OverView>{overview}</S.OverView>
-            <div>평점: ⭐️{vote_average}</div>
-          </S.Text>
+          {isShowContent ? (
+            <S.Text>
+              <S.Title>{title}</S.Title>
+              <S.OverView>{overview}</S.OverView>
+              <div>평점: ⭐️{vote_average}</div>
+            </S.Text>
+          ) : (
+            ""
+          )}
         </>
       ) : (
         <S.Img src="img/noimage.png"></S.Img>
@@ -35,6 +62,7 @@ const MovieContainer = styled.span`
   position: relative;
   display: inline-block;
   margin: 30px 70px;
+  cursor: pointer;
 `;
 
 const Img = styled.img`
