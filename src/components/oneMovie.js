@@ -1,22 +1,31 @@
-import { useEffect, useState } from 'react';
-import { get_image } from '../apis/image.api';
-import styled from 'styled-components';
+import { useEffect, useState } from "react";
+import { get_image } from "../apis/image.api";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { get_movieDetail } from "../apis/detail.api";
 
 const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
-    // const [posters, setPosters] = useState([]);
-    const [image, setImage] = useState({});
-    const imgUrl = 'https://image.tmdb.org/t/p/w200';
+  // const [posters, setPosters] = useState([]);
+  const [image, setImage] = useState({});
+  const imgUrl = "https://image.tmdb.org/t/p/w200";
+  // content, 평점 랜더링 여부를 state로 정의
+  const [isShowContent, setIsShowContent] = useState(false);
 
-    useEffect(() => {
-        get_image(setImage, movie_id);
-    }, []);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(Array(image));
-    }, [image]);
+  useEffect(() => {
+    get_image(setImage, movie_id);
+  }, []);
+
+
+  const goToMovieDetail = () => {
+    console.log(movie_id);
+    navigate(`/detail/?q=${movie_id}`);
+  };
+
 
     return (
-        <S.MovieContainer>
+        <S.MovieContainer onClick={goToMovieDetail}>
             {poster_path ? (
                 <>
                     <S.Poster src={`${imgUrl}${poster_path}`} />
@@ -32,9 +41,11 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
             )}
         </S.MovieContainer>
     );
+
 };
 
 export default OneMovie;
+
 
 const MovieContainer = styled.div`
     position: relative;
@@ -82,6 +93,7 @@ const Title = styled.span`
 `;
 
 const OverView = styled.div`
+
     border-top: 1px solid white;
     padding-top: 30px;
     line-height: 1.2;
@@ -106,4 +118,5 @@ const S = {
     OverView,
     InnerText,
     Rating
+
 };
