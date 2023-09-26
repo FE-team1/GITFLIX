@@ -14,10 +14,9 @@ const Header = () => {
 
   const searchMovie = (e) => {
     if (e.key === "Enter") {
-      console.log("We click this key", e.key);
       let keyword = e.target.value;
       console.log(keyword);
-      navigate(`/?q=${keyword}`);
+      navigate(`/search/?q=${keyword}`);
     }
   };
   return (

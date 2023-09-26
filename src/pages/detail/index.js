@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { get_movieDetail } from "../../apis/detail.api";
 import { useSearchParams } from "react-router-dom";
 import { get_image } from "../../apis/image.api";
+
 import DetailHeader from "../../components/layout/detailHeader";
 import styled from "styled-components";
 // import YouTube from "react-youtube";
@@ -9,12 +10,14 @@ import { positionInset } from "../../styles/common.style";
 import { useQuery } from "@tanstack/react-query";
 import { Typography } from "@mui/material";
 
+
 const DetailPage = () => {
   const [query, setQuery] = useSearchParams();
   // const ref = useRef(null);
   const id = query.get("q");
   const [detailMovie, setDetailMovie] = useState([]);
   const [image, setImage] = useState({});
+  const [video, setVideo] = useState({});
   const imgUrl = "https://image.tmdb.org/t/p/w200";
   // const { data } = useQuery(["movieDetail", id], () => get_movieDetail(id));
 
@@ -28,13 +31,21 @@ const DetailPage = () => {
   useEffect(() => {
     console.log(id);
     get_movieDetail(setDetailMovie, id);
-  }, []);
-
-  useEffect(() => {
     get_image(setImage, id);
+    get_video(setVideo, id);
   }, []);
+  const videos = video.results;
+  console.log(videos);
+  // const trailer = v
+  const trailer = videos && videos.filter((item) => item.name.includes("Teaser"));
+  console.log(trailer);
+  const key = trailer && trailer.map((tra) => tra.key);
+  console.log(key);
+  const TrailerKey = key && key.join();
+  console.log(TrailerKey);
 
   return (
+
     <>
       <DetailHeader />
       <S.Wrapper>
@@ -111,6 +122,7 @@ const Wrapper = styled.div`
   max-width: 1500px;
 `;
 
+
 const SectionInfo = styled.div``;
 
 const Img = styled.div`
@@ -133,3 +145,4 @@ const S = {
   SectionInfo,
   Img,
 };
+
