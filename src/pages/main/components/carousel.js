@@ -1,41 +1,44 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { Component } from 'react';
-import Slider from 'react-slick';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// modules
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import styled from 'styled-components';
 
-export default class Carousel extends Component {
-    render() {
-        const settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        };
-        return (
-            <div>
-                <h2> Single Item</h2>
-                <Slider {...settings}>
-                    <div>
-                        <h3>1</h3>
-                    </div>
-                    <div>
-                        <h3>2</h3>
-                    </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
-                </Slider>
-            </div>
-        );
-    }
-}
+
+const Carousel = ({movieList}) => {
+
+    return (
+        <SwiperWrapper>
+            <Swiper
+                spaceBetween={30}
+                effect={'fade'}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[Autoplay, EffectFade, Pagination]}
+                className="mySwiper"
+            >
+                <SwiperSlide>Slide 1</SwiperSlide>
+                <SwiperSlide>Slide 2!!</SwiperSlide>
+                <SwiperSlide>Slide 3!!!</SwiperSlide>
+                <SwiperSlide>Slide 4!!!!</SwiperSlide>
+            </Swiper>
+        </SwiperWrapper>
+    );
+};
+
+export default Carousel;
+
+const SwiperWrapper = styled.div`
+    max-width: 1000px;
+    margin: 0 10%;
+    height: 300px;
+    background-color: #222;
+`;
