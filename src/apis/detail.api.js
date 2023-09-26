@@ -4,8 +4,9 @@ export const get_movieDetail = (setDetailMovie, id) => {
   axiosInstance
     .get(`/movie/${id}`)
     .then((res) => {
-      setDetailMovie(res.data);
-      console.log(res.data);
+      let movieData = res.data;
+      setDetailMovie(movieData);
+      console.log(movieData);
     })
     .catch((err) => {
       console.log(err);

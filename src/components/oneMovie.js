@@ -1,23 +1,20 @@
 import { useEffect, useState } from "react";
 import { get_image } from "../apis/image.api";
 import styled from "styled-components";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { get_movieDetail } from "../apis/detail.api";
 
-const OneMovie = ({ movie_id, title, poster_path, overview, vote_average, movieList, setMovieList }) => {
+const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
   // const [posters, setPosters] = useState([]);
   const [image, setImage] = useState({});
   const imgUrl = "https://image.tmdb.org/t/p/w200";
   // content, 평점 랜더링 여부를 state로 정의
   const [isShowContent, setIsShowContent] = useState(false);
-  const [query, setQuery] = useSearchParams();
-  let id = query.get("q");
 
   const navigate = useNavigate();
 
   useEffect(() => {
     get_image(setImage, movie_id);
-    console.log(movie_id);
   }, []);
 
   const showContent = () => {
@@ -31,7 +28,6 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average, movieL
   const goToMovieDetail = () => {
     console.log(movie_id);
     navigate(`/detail/?q=${movie_id}`);
-    // get_movieDetail(setDetailMovie, movie_id);
   };
 
   return (
