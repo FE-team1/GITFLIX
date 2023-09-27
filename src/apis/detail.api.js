@@ -1,17 +1,14 @@
-import axios from 'axios';
+import { axiosInstance } from "./core";
 
-const detail = {
-  method: 'GET',
-  url: 'https://api.themoviedb.org/3/movie/movie_id',
-  params: {language: 'en-US'},
-  headers: {accept: 'application/json'}
+export const get_movieDetail = (setDetailMovie, id) => {
+  axiosInstance
+    .get(`/movie/${id}`)
+    .then((res) => {
+      let movieData = res.data;
+      setDetailMovie(movieData);
+      console.log(movieData);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
-
-axios
-  .request(detail)
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
