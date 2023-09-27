@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { get_movieDetail } from "../../apis/detail.api";
 import { useSearchParams } from "react-router-dom";
@@ -6,6 +7,7 @@ import { get_video } from "../../apis/video.api";
 import styled from "styled-components";
 // import YouTube from "react-youtube";
 import { Typography } from "@mui/material";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 import Header from "../../components/layout/header";
 
 
@@ -17,6 +19,7 @@ const DetailPage = () => {
   const [image, setImage] = useState({});
   const [video, setVideo] = useState({});
   const imgUrl = "https://image.tmdb.org/t/p/w200";
+
   // const { data } = useQuery(["movieDetail", id], () => get_movieDetail(id));
 
   // const { videos } = data;
@@ -25,6 +28,7 @@ const DetailPage = () => {
   //   videos.results.length > 0
   //     ? videos.results.find((result) => result.type === "Trailer").key
   //     : ""; // video Trailer 중에 가장 최신 동영상 가져오기
+
 
   useEffect(() => {
     console.log(id);

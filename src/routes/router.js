@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from 'react-router-dom';
 import MainPage from '../pages/main';
 import DetailPage from '../pages/detail';

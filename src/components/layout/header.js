@@ -11,7 +11,9 @@ const Header = () => {
         setSearchBox((prev) => !prev);
     };
 
-    const navigate = useNavigate();
+
+
+  const navigate = useNavigate();
 
   const searchMovie = (e) => {
     if (e.key === "Enter") {
@@ -20,8 +22,8 @@ const Header = () => {
       navigate(`/search/?q=${keyword}`);
     }
   };
-  
 
+  
   return (
     <S.Wrapper>
       <S.Container>
