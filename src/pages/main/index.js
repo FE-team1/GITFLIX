@@ -13,13 +13,13 @@ const MainPage = () => {
     get_movieList(setMovieList);
   }, []);
 
-  useEffect(() => {
-    console.log(`movieList:`, movieList);
-  }, [movieList]);
-  //   const queryClient = useQueryClient();
-  //   const { data } = useQuery(["getMovie"], get_movieList);
-  //   console.log(data);
 
+    useEffect(() => {
+        console.log(`movieList:`, movieList);
+    }, [movieList]);
+    //   const queryClient = useQueryClient();
+    //   const { data } = useQuery(["getMovie"], get_movieList);
+    //   console.log(data);
 
     return (
         <>
@@ -52,8 +52,8 @@ const Wrapper = styled.div`
     margin: 0 10%;
     max-width: 1460px;
     padding-top: 100px;
-    width: 100%
-`
+    width: 100%;
+`;
 
 
 const S = {
