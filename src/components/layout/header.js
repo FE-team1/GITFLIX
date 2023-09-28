@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { flexAlignCenter } from '../../styles/common.style';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+
 
 const Header = () => {
     const [searchBox, setSearchBox] = useState(false);
@@ -21,6 +22,7 @@ const Header = () => {
     };
     
     return (
+        <>
         <S.Wrapper >
             <S.Container>
                 <S.Logo src="img/githubicon.png"></S.Logo>
@@ -46,6 +48,8 @@ const Header = () => {
                 )}
             </S.Container>
         </S.Wrapper>
+        <Outlet/>
+    </>
     );
 };
 
