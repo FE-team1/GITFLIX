@@ -21,11 +21,15 @@ const Header = () => {
         }
     };
     
+    const goToHome = () => {
+        navigate("/");
+      };
+
     return (
         <>
         <S.Wrapper >
             <S.Container>
-                <S.Logo src="img/githubicon.png"></S.Logo>
+                <S.Logo src="img/githubicon.png" onClick={goToHome}></S.Logo>
                 <nav>
                     <S.Ul>
                         <li onClick={() => navigate('/now-playing')}>Now Playing</li>

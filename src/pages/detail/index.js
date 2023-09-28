@@ -8,7 +8,6 @@ import styled from "styled-components";
 import { Typography } from "@mui/material";
 import Header from "../../components/layout/header";
 
-
 const DetailPage = () => {
   const [query, setQuery] = useSearchParams();
   // const ref = useRef(null);
@@ -35,7 +34,8 @@ const DetailPage = () => {
   const videos = video.results;
   console.log(videos);
   // const trailer = v
-  const trailer = videos && videos.filter((item) => item.name.includes("Teaser"));
+  const trailer =
+    videos && videos.filter((item) => item.name.includes("Teaser"));
   console.log(trailer);
   const key = trailer && trailer.map((tra) => tra.key);
   console.log(key);
@@ -43,9 +43,7 @@ const DetailPage = () => {
   console.log(TrailerKey);
 
   return (
-
     <>
-      <Header />
       <S.Wrapper>
         {/* <S.MovieFrame> */}
         {/* <YouTube
@@ -120,7 +118,6 @@ const Wrapper = styled.div`
   max-width: 1500px;
 `;
 
-
 const SectionInfo = styled.div``;
 
 const Img = styled.div`
@@ -143,4 +140,3 @@ const S = {
   SectionInfo,
   Img,
 };
-
