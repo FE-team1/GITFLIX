@@ -46,48 +46,48 @@
 
 ## ➡️ 폴더 구조
 
-src
- ├ apis
- │   ├ core.js
- │	 ├ detail.api.js
- │   ├ image.api.js
- │	 ├ movieList.js
- │	 ├ now-pliaying.api.js
- │	 ├ popular.api.js
- │	 ├ top-rated.api.js
- │	 ├ upcoming.api.js
- │	 └ video.api.js
- ├ components
- │   ├ layout
- │   │	└ header.js
- │   └ oneMovie.js
- ├ consts
- │   └ queryKey.js
- ├ pages
- │   ├ detail
- │   │  └ index.js
- │   ├ main
- │   │  ├ components
- │   │  │   ├ carousel.js
- │   │  │   ├ infinitescroll.js
- │	 │  │   └ skeleton.js
- │   │  ├ now-playing
- │   │  │   └ index.js
- │   │  ├ popular
- │   │  │   └ index.js
- │   │  ├ top-rated
- │   │  │   └ index.js
- │   │  ├ upcoming
- │   │  │   └ index.js
- │   │  └ index.js
- │   ├ search
- │   │  └ index.js
- ├ routes
- │	 └ router.js
- ├ styles
- │   ├ common.js
- │   ├ global.js
- │   └ theme.js
+src <br>
+ ├ apis <br>
+ │   ├ core.js <br>
+ │	 ├ detail.api.js <br>
+ │   ├ image.api.js <br>
+ │	 ├ movieList.js <br>
+ │	 ├ now-pliaying.api.js <br>
+ │	 ├ popular.api.js <br>
+ │	 ├ top-rated.api.js <br>
+ │	 ├ upcoming.api.js <br>
+ │	 └ video.api.js <br>
+ ├ components <br>
+ │   ├ layout <br>
+ │   │	└ header.js <br>
+ │   └ oneMovie.js <br>
+ ├ consts <br>
+ │   └ queryKey.js <br>
+ ├ pages <br>
+ │   ├ detail <br>
+ │   │  └ index.js <br>
+ │   ├ main <br>
+ │   │  ├ components <br>
+ │   │  │   ├ carousel.js <br>
+ │   │  │   ├ infinitescroll.js <br>
+ │	 │  │   └ skeleton.js <br>
+ │   │  ├ now-playing <br>
+ │   │  │   └ index.js <br>
+ │   │  ├ popular <br>
+ │   │  │   └ index.js <br>
+ │   │  ├ top-rated  <br>
+ │   │  │   └ index.js <br>
+ │   │  ├ upcoming <br>
+ │   │  │   └ index.js <br>
+ │   │  └ index.js <br>
+ │   ├ search <br>
+ │   │  └ index.js <br>
+ ├ routes <br>
+ │	 └ router.js <br>
+ ├ styles <br>
+ │   ├ common.js <br>
+ │   ├ global.js <br>
+ │   └ theme.js <br>
 
  
 
