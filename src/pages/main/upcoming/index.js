@@ -3,10 +3,8 @@ import styled from 'styled-components';
 import OneMovie from '../../../components/oneMovie';
 import { get_upComingMovie } from '../../../apis/upcoming.api';
 
-
 const UpComing = () => {
     const [upComingMovie, setUpComingMovie] = useState([]);
-
 
     useEffect(() => {
         get_upComingMovie(setUpComingMovie);
@@ -49,9 +47,9 @@ const Title = styled.p`
     margin: 1% 5%;
     font-size: ${({ theme }) => theme.FONT_SIZE.large};
     font-weight: ${({ theme }) => theme.FONT_WEIGHT.bold};
-`
+`;
 
 const S = {
     Wrapper,
-    Title
+    Title,
 };

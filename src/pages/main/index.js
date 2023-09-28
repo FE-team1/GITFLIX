@@ -5,14 +5,12 @@ import Header from '../../components/layout/header';
 import styled from 'styled-components';
 import Carousel from './components/carousel';
 
-
 const MainPage = () => {
-  const [movieList, setMovieList] = useState([]);
+    const [movieList, setMovieList] = useState([]);
 
-  useEffect(() => {
-    get_movieList(setMovieList);
-  }, []);
-
+    useEffect(() => {
+        get_movieList(setMovieList);
+    }, []);
 
     useEffect(() => {
         console.log(`movieList:`, movieList);
@@ -42,19 +40,17 @@ const MainPage = () => {
             </S.Wrapper>
         </>
     );
-
 };
 
 export default MainPage;
 
 const Wrapper = styled.div`
-
     margin: 0 10%;
     max-width: 1460px;
-    padding-top: 100px;
+    padding-top: 600px;
     width: 100%;
 `;
 
 const S = {
-  Wrapper,
+    Wrapper,
 };

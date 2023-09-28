@@ -10,7 +10,6 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
   const imgUrl = "https://image.tmdb.org/t/p/original";
   // content, 평점 랜더링 여부를 state로 정의
 
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export default OneMovie;
 const MovieContainer = styled.div`
     position: relative;
     display: inline-block;
-    margin: 100px 70px;
+    margin: 80px 70px;
     cursor: pointer;
     img {
         transition: all 0.2s linear;
@@ -60,7 +59,7 @@ const MovieContainer = styled.div`
             opacity: 1;
         }
         img {
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
     }
 `;
@@ -76,11 +75,11 @@ const InnerText = styled.div`
     left: 50%;
     opacity: 0;
     z-index: 7;
-    width: 120%;
-    height: 120%;
+    width: 115%;
+    height: 115%;
     padding: 20px;
     border-radius: 4px;
-    transition: opacity 0.5s;
+    transition: opacity 0.7s;
     background-color: rgba(180, 20, 220, 0.3);
     text-align: left;
     transform: translate(-50%, -50%);
