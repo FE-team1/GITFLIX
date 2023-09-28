@@ -1,10 +1,18 @@
-## ➡️ 프로젝트 소개
+<h1>📑 프로젝트 소개 및 개요</h1> 
 
-영화 소개 API를 이용해서 영화 소개 사이트를 제작했습니다.
+<h3> TMDB API를 이용해서 영화 소개 사이트를 구현하였습니다. </h3> 
 
-## ➡️ 프로젝트 개요
+➡️ **TMDB**가 운영하는 **TMDB API**를 사용해서 영화를 볼 수 있게 만들었고,
 
+➡️ **무한스크롤**로 해당 영화 데이터들을 확인할 수 있습니다.
 
+➡️ 또한 **필터 기능**을 통해 영화를 '지금상영순','인기순,'최고평점순',개봉순'을 선택하여 볼 수 있습니다.
+
+➡️ 또한 영화 포스터를 클릭하면 영화의 정보가 담긴 **디테일 페이지**로 이동하도록 만들었습니다.
+
+## ➡️ 와이어 프레임
+
+![figma](https://github.com/FE-team1/GITFLIX/assets/110034416/d042254d-be4d-4a9c-9b66-48a56d13f6e5)
 
 ## ➡️ 진행 팀원 소개
 
@@ -38,27 +46,61 @@
 
 ## ➡️ 폴더 구조
 
+src
+ ├ apis
+ │   ├ core.js
+ │	 ├ detail.api.js
+ │   ├ image.api.js
+ │	 ├ movieList.js
+ │	 ├ now-pliaying.api.js
+ │	 ├ popular.api.js
+ │	 ├ top-rated.api.js
+ │	 ├ upcoming.api.js
+ │	 └ video.api.js
+ ├ components
+ │   ├ layout
+ │   │	└ header.js
+ │   └ oneMovie.js
+ ├ consts
+ │   └ queryKey.js
+ ├ pages
+ │   ├ detail
+ │   │  └ index.js
+ │   ├ main
+ │   │  ├ components
+ │   │  │   ├ carousel.js
+ │   │  │   ├ infinitescroll.js
+ │	 │  │   └ skeleton.js
+ │   │  ├ now-playing
+ │   │  │   └ index.js
+ │   │  ├ popular
+ │   │  │   └ index.js
+ │   │  ├ top-rated
+ │   │  │   └ index.js
+ │   │  ├ upcoming
+ │   │  │   └ index.js
+ │   │  └ index.js
+ │   ├ search
+ │   │  └ index.js
+ ├ routes
+ │	 └ router.js
+ ├ styles
+ │   ├ common.js
+ │   ├ global.js
+ │   └ theme.js
 
+ 
 
 ## ➡️ 사용 라이브러리
 
 초기셋팅
--prettier
--eslint
--husky
--styled-components
+-prettier <br>
+-eslint <br>
+-husky <br>
+-styled-components <br>
 
 사용 라이브러리
-- husky, prettier, eslint
-- axios
-- react-router-dom
-- styled-components
 
-## ➡️ 진행과정
-
-
-
-#### 아쉬운 점
 
 - 가영
 - 1) 슬라이더 구현하는데에 있어서 이해력 부족 -> 이미지를 받아올경우 슬라이드가 무지성으로 늘어남. 한개만받아오면 이미지 한 개만 받아짐 (???) 어떻게 해결해야할까 고민중입니다. 
@@ -72,6 +114,3 @@
   1. API 호출 및 데이터 이용(데이터를 가져오고, 원하는 데이터만 뽑아서 뿌려주는 등)의 개념이 부족하다보니 막상 코드 작성 단계에서 많이 막혀서 다른 팀원에게 부탁한 부분도 있다.
   2. 깃허브 관련 이슈가 많았습니다. 머지 과정에서 아직 익숙하지 않아서 오류를 해결하는데 고생을 했고, 제일 큰 실수인 강제로 머지를 해버려서 커밋 전체가 한 번 날아갔다가 복구가 되어서 내가 했었던 커밋들이 전부 날아가는 안타까운 일을 겪었기에 다음부턴 좀 더 조심해서 사용해야겠다는 걸 깨달았습니다.
   3. 전체적으로 아쉬운게 많았기 때문에 계속해서 리팩토링을 진행할 겁니다.
-
-
-#### 개선할 점
