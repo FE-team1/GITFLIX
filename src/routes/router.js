@@ -10,8 +10,35 @@ import UpComing from '../pages/main/upcoming';
 
 const router = createBrowserRouter([
     {
-        path: '/',
-        element: <MainPage />,
+        
+        element: <Header />,
+        children: [
+            {
+                path: '/',
+                element: <MainPage />,
+            },
+            { path: '/detail', element: <DetailPage /> },
+            {
+                path: '/search',
+                element: <SearchPage />,
+            },
+            {
+                path: '/popular',
+                element: <Popular />,
+            },
+            {
+                path: '/top-rated',
+                element: <TopRated />,
+            },
+            {
+                path: '/now-playing',
+                element: <NowPlaying />,
+            },
+            {
+                path: '/upcoming',
+                element: <UpComing />,
+            },
+        ],
     },
     { path: '/detail', element: <DetailPage /> },
     {

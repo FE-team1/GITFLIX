@@ -60,7 +60,7 @@ const MovieContainer = styled.div`
             opacity: 1;
         }
         img {
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
     }
 `;
@@ -76,11 +76,11 @@ const InnerText = styled.div`
     left: 50%;
     opacity: 0;
     z-index: 7;
-    width: 120%;
-    height: 120%;
+    width: 115%;
+    height: 115%;
     padding: 20px;
     border-radius: 4px;
-    transition: opacity 0.5s;
+    transition: opacity 0.7s;
     background-color: rgba(180, 20, 220, 0.3);
     text-align: left;
     transform: translate(-50%, -50%);
