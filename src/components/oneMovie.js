@@ -1,22 +1,30 @@
-import { useEffect, useState } from 'react';
-import { get_image } from '../apis/image.api';
-import styled from 'styled-components';
+import { useEffect, useState } from "react";
+import { get_image } from "../apis/image.api";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { get_movieDetail } from "../apis/detail.api";
 
 const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
-    // const [posters, setPosters] = useState([]);
-    const [image, setImage] = useState({});
-    const imgUrl = 'https://image.tmdb.org/t/p/w200';
+  // const [posters, setPosters] = useState([]);
+  const [image, setImage] = useState({});
+  const imgUrl = "https://image.tmdb.org/t/p/original";
+  // content, 평점 랜더링 여부를 state로 정의
 
-    useEffect(() => {
-        get_image(setImage, movie_id);
-    }, []);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(Array(image));
-    }, [image]);
+  useEffect(() => {
+    get_image(setImage, movie_id);
+  }, []);
+
+
+  const goToMovieDetail = () => {
+    console.log(movie_id);
+    navigate(`/detail/?q=${movie_id}`);
+  };
+
 
     return (
-        <S.MovieContainer>
+        <S.MovieContainer onClick={goToMovieDetail}>
             {poster_path ? (
                 <>
                     <S.Poster src={`${imgUrl}${poster_path}`} />
@@ -32,14 +40,16 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
             )}
         </S.MovieContainer>
     );
+
 };
 
 export default OneMovie;
 
+
 const MovieContainer = styled.div`
     position: relative;
     display: inline-block;
-    margin: 30px 70px;
+    margin: 100px 70px;
     cursor: pointer;
     img {
         transition: all 0.2s linear;
@@ -49,13 +59,14 @@ const MovieContainer = styled.div`
             opacity: 1;
         }
         img {
-            transform: scale(1.15);
+            transform: scale(1.2);
         }
     }
 `;
 
 const Poster = styled.img`
     border-radius: 4px;
+    width: 200px;
 `;
 
 const InnerText = styled.div`
@@ -64,11 +75,11 @@ const InnerText = styled.div`
     left: 50%;
     opacity: 0;
     z-index: 7;
-    width: 115%;
-    height: 115%;
+    width: 120%;
+    height: 120%;
     padding: 20px;
     border-radius: 4px;
-    transition: opacity 0.7s;
+    transition: opacity 0.5s;
     background-color: rgba(180, 20, 220, 0.3);
     text-align: left;
     transform: translate(-50%, -50%);
@@ -106,4 +117,5 @@ const S = {
     OverView,
     InnerText,
     Rating
+
 };
