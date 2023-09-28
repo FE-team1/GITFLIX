@@ -14,9 +14,17 @@
 
 ![figma](https://github.com/FE-team1/GITFLIX/assets/110034416/d042254d-be4d-4a9c-9b66-48a56d13f6e5)
 
-## ➡️ 시연 영
+## ➡️ 시연 영상 
 
-![슬라이드 구현](https://github.com/FE-team1/GITFLIX/assets/110034416/e8034316-480a-4750-b30b-527a2ebde5a2)
+슬라이드 구현 
+https://github.com/FE-team1/GITFLIX/assets/110034416/e43b9dc4-2e78-476f-815f-1b9f5f7f5af6
+
+필터 기능 
+https://github.com/FE-team1/GITFLIX/assets/110034416/355cd27e-24b7-4a51-9dd8-d1a676976385
+
+페이지 이동
+https://github.com/FE-team1/GITFLIX/assets/110034416/83def4c2-7300-4c6b-82cd-569b00460d8b
+
 
 ## ➡️ 진행 팀원 소개
 
