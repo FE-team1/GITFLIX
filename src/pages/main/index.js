@@ -24,8 +24,8 @@ const MainPage = () => {
     return (
         <>
             <Header movieList={movieList} setMovieList={setMovieList} />
+            <Carousel movieList={movieList} />
             <S.Wrapper>
-                <Carousel movieList={movieList} />
                 {movieList.map(({ id, title, poster_path, overview, vote_average }) => {
                     return (
                         <>
@@ -54,7 +54,6 @@ const Wrapper = styled.div`
     padding-top: 100px;
     width: 100%;
 `;
-
 
 const S = {
   Wrapper,

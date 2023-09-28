@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { get_popularMovie } from '../../../apis/popular.api';
 import styled from 'styled-components';
 import OneMovie from '../../../components/oneMovie';
+import { get_upComingMovie } from '../../../apis/upcoming.api';
 
 
 const UpComing = () => {
@@ -9,7 +9,7 @@ const UpComing = () => {
 
 
     useEffect(() => {
-        get_popularMovie(setUpComingMovie);
+        get_upComingMovie(setUpComingMovie);
     }, []);
 
     useEffect(() => {
