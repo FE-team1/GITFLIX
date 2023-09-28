@@ -10,6 +10,7 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
   const imgUrl = "https://image.tmdb.org/t/p/original";
   // content, 평점 랜더링 여부를 state로 정의
 
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -93,6 +94,7 @@ const Title = styled.span`
 `;
 
 const OverView = styled.div`
+
     border-top: 1px solid white;
     padding-top: 30px;
     line-height: 1.2;
