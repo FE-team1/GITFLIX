@@ -6,7 +6,6 @@ import { get_video } from "../../apis/video.api";
 import styled from "styled-components";
 // import YouTube from "react-youtube";
 import { Typography } from "@mui/material";
-import { AiOutlineConsoleSql } from "react-icons/ai";
 import Header from "../../components/layout/header";
 
 

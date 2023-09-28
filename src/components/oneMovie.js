@@ -10,7 +10,6 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
   const imgUrl = "https://image.tmdb.org/t/p/original";
   // content, 평점 랜더링 여부를 state로 정의
 
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export default OneMovie;
 const MovieContainer = styled.div`
     position: relative;
     display: inline-block;
-    margin: 100px 70px;
+    margin: 80px 70px;
     cursor: pointer;
     img {
         transition: all 0.2s linear;

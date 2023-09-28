@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { flexAlignCenter } from '../../styles/common.style';
@@ -7,7 +6,6 @@ import { Outlet, useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
-
     const [searchBox, setSearchBox] = useState(false);
     const onClickSearch = (prev) => {
         setSearchBox((prev) => !prev);
@@ -53,12 +51,11 @@ const Header = () => {
         <Outlet/>
     </>
     );
-
+};
 
 export default Header;
 
 const Wrapper = styled.div`
-
     width: 100%;
     position: fixed;
     z-index: 10;
@@ -66,16 +63,16 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  ${flexAlignCenter}
-  font-size: 1.2rem;
-  margin: 20px 80px;
+    ${flexAlignCenter}
+    font-size: 1.2rem;
+    margin: 20px 80px;
 `;
 
 const Logo = styled.img`
-  cursor: pointer;
-  width: 50px;
-  margin-left: 50px;
-  margin-right: 40px;
+    cursor: pointer;
+    width: 50px;
+    margin-left: 50px;
+    margin-right: 40px;
 `;
 
 const Ul = styled.div`
@@ -95,31 +92,29 @@ const Ul = styled.div`
 `;
 
 const SearchBox = styled.div`
-
     border: 1px solid #fff;
     border-radius: 4px;
     display: flex;
-
 `;
 
 const Input = styled.input`
-  border: none;
-  outline: none;
-  background-color: transparent;
-  width: 200px;
-  font-size: ${({ theme }) => theme.FONT_SIZE.middle};
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 200px;
+    font-size: ${({ theme }) => theme.FONT_SIZE.middle};
 `;
 
 const Icon = styled.div`
-  display: inline-block;
+    display: inline-block;
 `;
 
 const S = {
-  Logo,
-  Container,
-  Wrapper,
-  Ul,
-  Input,
-  SearchBox,
-  Icon,
+    Logo,
+    Container,
+    Wrapper,
+    Ul,
+    Input,
+    SearchBox,
+    Icon,
 };
