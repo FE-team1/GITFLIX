@@ -89,7 +89,11 @@ src <br>
 -styled-components <br>
 
 사용 라이브러리
-![javascript](https://github.com/FE-team1/GITFLIX/assets/110034416/366a5830-a798-4c89-8523-c5444d18e831)
+<div align="center">
+	<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java&logoColor=white" />
+	<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
+	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
+</div>
 
 
 - 가영
