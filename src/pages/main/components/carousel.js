@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-// modules
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -11,7 +10,6 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const Carousel = ({ movieList }) => {
   const imgUrl = "https://image.tmdb.org/t/p/original";
-
   const navigate = useNavigate();
 
   return (
