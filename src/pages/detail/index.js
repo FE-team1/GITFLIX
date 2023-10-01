@@ -5,7 +5,7 @@ import { get_image } from "../../apis/image.api";
 import { get_video } from "../../apis/video.api";
 import styled from "styled-components";
 // import YouTube from "react-youtube";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Header from "../../components/layout/header";
 
 const DetailPage = () => {
@@ -30,41 +30,28 @@ const DetailPage = () => {
     get_movieDetail(setDetailMovie, id);
     get_image(setImage, id);
     get_video(setVideo, id);
+    console.log(detailMovie);
   }, []);
-  const videos = video.results;
-  console.log(videos);
-  // const trailer = v
-  const trailer =
-    videos && videos.filter((item) => item.name.includes("Teaser"));
-  console.log(trailer);
-  const key = trailer && trailer.map((tra) => tra.key);
-  console.log(key);
-  const TrailerKey = key && key.join();
-  console.log(TrailerKey);
+  // const videos = video.results;
+  // console.log(videos);
+
+  // const trailer = videos && videos.filter((item) => item.name.includes("Teaser"));
+  // console.log(trailer);
+  // const key = trailer && trailer.map((tra) => tra.key);
+  // console.log(key);
+  // const TrailerKey = key && key.join();
+  // console.log(TrailerKey);
 
   return (
     <>
       <S.Wrapper>
-        {/* <S.MovieFrame> */}
-        {/* <YouTube
-            videoId={videoId}
-            ref={ref}
-            allow="autoplay; encrypted-media; fullscreen"
-            frameborder="0"
-            opts={{
-              width: "100%",
-              // height: '708',
-              playerVars: {
-                autoplay: 1, // 자동재생 O
-                rel: 0, // 관련 동영상 표시 X
-                controls: 0, // 플레이어 컨트롤이 표시 X
-                modestbranding: 1, // 컨트롤바에 youtube 로고 X
-              },
-            }}
-          /> */}
-        {/* </S.MovieFrame> */}
-
         <BackGround backdrop_path_src={detailMovie.backdrop_path}></BackGround>
+        {/* <Container maxWidth="xl">
+          <div>
+            <img src={`${imgUrl}${detailMovie.poster_path}`} width={300} />
+          </div>
+          <div></div>
+        </Container> */}
         <img src={`${imgUrl}${detailMovie.poster_path}`} />
         <br />
         <br />

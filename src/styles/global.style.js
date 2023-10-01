@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components"
-import reset from 'styled-reset'
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle`
   // reset.css
@@ -12,11 +12,11 @@ const GlobalStyles = createGlobalStyle`
   /* 배경색 우리 테마에 맞게 변경해야함 */
   body {
     background-color: #111;
+    overflow-x: hidden;
   }
   button {
     border: none;
   }
-`
+`;
 
-
-export default GlobalStyles
+export default GlobalStyles;
