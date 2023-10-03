@@ -39,10 +39,10 @@ const MainPage = () => {
 export default MainPage;
 
 const Wrapper = styled.div`
+  margin: 0 5%;
   max-width: 1460px;
   padding-top: 600px;
   width: 100%;
-  margin-left: 0px;
 `;
 
 const S = {
