@@ -32,8 +32,8 @@ const DetailPage = () => {
     get_video(setVideo, id);
     console.log(detailMovie);
   }, []);
-  // const videos = video.results;
-  // console.log(videos);
+  const videos = video.results;
+  console.log(videos);
 
   // const trailer = videos && videos.filter((item) => item.name.includes("Teaser"));
   // console.log(trailer);
