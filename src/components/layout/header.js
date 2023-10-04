@@ -5,11 +5,6 @@ import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [searchBox, setSearchBox] = useState(false);
-  const onClickSearch = (prev) => {
-    setSearchBox((prev) => !prev);
-  };
-
   const navigate = useNavigate();
 
   const searchMovie = (e) => {
@@ -37,18 +32,13 @@ const Header = () => {
               <li onClick={() => navigate("/upcoming")}>Upcoming</li>
             </S.Ul>
           </nav>
-          {searchBox ? (
-            <S.SearchBox>
-              <S.Input placeholder="제목을 입력하세요" onKeyPress={(e) => searchMovie(e)} />
-              <S.Icon>
-                <AiOutlineSearch onClick={onClickSearch} size={30} />
-              </S.Icon>
-            </S.SearchBox>
-          ) : (
+
+          <S.SearchBox>
+            <S.Input placeholder="Search movie" onKeyPress={(e) => searchMovie(e)} />
             <S.Icon>
-              <AiOutlineSearch onClick={onClickSearch} size={30} />
+              <AiOutlineSearch size={30} />
             </S.Icon>
-          )}
+          </S.SearchBox>
         </S.Container>
       </S.Wrapper>
       <Outlet />
@@ -95,7 +85,7 @@ const Ul = styled.div`
 `;
 
 const SearchBox = styled.div`
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   border-radius: 4px;
   display: flex;
 `;
@@ -106,6 +96,8 @@ const Input = styled.input`
   background-color: transparent;
   width: 200px;
   font-size: ${({ theme }) => theme.FONT_SIZE.middle};
+  color: "white";
+  padding: 8px;
 `;
 
 const Icon = styled.div`
