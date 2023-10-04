@@ -37,7 +37,7 @@ const UpComing = () => {
 export default UpComing;
 
 const Wrapper = styled.div`
-    margin: 0 10%;
+    margin: 0 5%;
     max-width: 1460px;
     padding-top: 100px;
     width: 100%;
