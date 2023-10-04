@@ -10,7 +10,8 @@ import Header from "../../components/layout/header";
 import Youtube from "react-youtube";
 import { get_similarMovie } from "../../apis/similar.api";
 import OneMovie from "../../components/oneMovie";
-import { grey } from "@mui/material/colors";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const DetailPage = () => {
   const [query, setQuery] = useSearchParams();
@@ -32,6 +33,10 @@ const DetailPage = () => {
   }, [id]);
   const videos = video.results;
   console.log(videos);
+
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -94,6 +99,7 @@ const DetailPage = () => {
           );
         })}
       </S.SimilarWrapper>
+      <FontAwesomeIcon icon={faAngleUp} bounce size="3x" transform="right-470 up-40" onClick={goToScrollTop} cursor="pointer" />
     </>
   );
 };

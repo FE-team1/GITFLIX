@@ -52,7 +52,8 @@ const Wrapper = styled.div`
   width: 100%;
   position: fixed;
   z-index: 10;
-  background-color: transparent;
+  background-color: black;
+  opacity: 0.5;
 `;
 
 const Container = styled.div`

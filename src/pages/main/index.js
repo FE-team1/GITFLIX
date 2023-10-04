@@ -5,6 +5,8 @@ import Header from "../../components/layout/header";
 import styled from "styled-components";
 import Carousel from "./components/carousel";
 import { Container } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const MainPage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -16,6 +18,10 @@ const MainPage = () => {
   useEffect(() => {
     console.log(`movieList:`, movieList);
   }, [movieList]);
+
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -31,6 +37,7 @@ const MainPage = () => {
             );
           })}
         </S.Wrapper>
+        <FontAwesomeIcon icon={faAngleUp} bounce size="3x" transform="right-470 up-40" onClick={goToScrollTop} cursor="pointer" />
       </Container>
     </>
   );
