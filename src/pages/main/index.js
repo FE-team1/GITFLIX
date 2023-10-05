@@ -10,7 +10,7 @@ import { axiosInstance } from "../../apis/core";
 
 const MainPage = () => {
   const [movieList, setMovieList] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [ref, inView] = useInView();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const MainPage = () => {
 
   const productFetch = () => {
     axiosInstance
-      .get(`/discover/movie?pageNo=${page}`)
+      .get(`discover/movie?page=${page}&sort_by=popularity.desc`)
       .then((res) => {
         console.log(res.data.results);
         // 리스트 뒤로 붙여주기
