@@ -12,9 +12,16 @@ export const flexAlignCenter = css`
 `;
 
 export const title = css`
-  font-size: 48px;
+  font-size: 38px;
   line-height: 16px;
   font-weight: bold;
+`;
+
+export const subtitle = css`
+  font-size: 28px;
+  line-height: 16px;
+  font-weight: bold;
+  color: #d5d5d5;
 `;
 
 export const positionInset = css`

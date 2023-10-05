@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styled from "styled-components";
 import { CardMedia } from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ movieList }) => {
   const imgUrl = "https://image.tmdb.org/t/p/original";
@@ -96,7 +96,7 @@ const TitleText = styled.div`
 
 const OverViewText = styled.div`
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
@@ -116,7 +116,7 @@ const InnerBox = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  padding: 100px;
+  padding: 150px;
   display: flex;
 
   img {
@@ -128,13 +128,14 @@ const InnerBox = styled.div`
     img {
       transform: scale(1.02);
     }
+    cursor: pointer;
   }
 `;
 
 const BackGround = styled.div`
   position: relative;
   width: 100%;
-  height: 900px;
+  height: 850px;
   background-image: url(${({ img_src }) => img_src});
   background-size: cover;
   &:before {

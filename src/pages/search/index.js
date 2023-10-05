@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import Header from '../../components/layout/header';
-import { useSearchParams } from 'react-router-dom';
-import OneMovie from '../../components/oneMovie';
-import styled from 'styled-components';
-import { get_movieList } from '../../apis/get_Api';
+import { useEffect, useState } from "react";
+import Header from "../../components/layout/header";
+import { useSearchParams } from "react-router-dom";
+import OneMovie from "../../components/oneMovie";
+import styled from "styled-components";
+import NotFound from "./components/NotFound";
+import { get_movieList } from "../../apis/get_Api";
 
 const SearchPage = () => {
     const [movieList, setMovieList] = useState([]);
@@ -13,31 +14,26 @@ const SearchPage = () => {
         get_movieList(setMovieList);
     }, []);
 
-    const movieSearchList = movieList.filter((movie) => movie.title.toUpperCase().includes(keyword.toUpperCase()));
-    console.log(movieSearchList);
-    return (
-        <div>
-            <Header />
-            <Wrapper>
-                {movieSearchList.length === 0
-                    ? 'Movie Not Found😥'
-                    : movieSearchList.map(({ id, title, poster_path, overview, vote_average, backdrop_path }) => {
-                          return (
-                              <>
-                                  <OneMovie
-                                      movie_id={id}
-                                      title={title}
-                                      poster_path={poster_path}
-                                      overview={overview}
-                                      vote_average={vote_average}
-                                  />
-                                  {/* <Slider backdrop_path={backdrop_path} /> */}
-                              </>
-                          );
-                      })}
-            </Wrapper>
-        </div>
-    );
+  const movieSearchList = movieList.filter((movie) => movie.title.toUpperCase().includes(keyword.toUpperCase()));
+  console.log(movieSearchList);
+  return (
+    <div>
+      <Wrapper>
+        {movieSearchList.length === 0 ? (
+          <NotFound />
+        ) : (
+          movieSearchList.map(({ id, title, poster_path, overview, vote_average, backdrop_path }) => {
+            return (
+              <>
+                <OneMovie movie_id={id} title={title} poster_path={poster_path} overview={overview} vote_average={vote_average} />
+                {/* <Slider backdrop_path={backdrop_path} /> */}
+              </>
+            );
+          })
+        )}
+      </Wrapper>
+    </div>
+  );
 };
 
 export default SearchPage;

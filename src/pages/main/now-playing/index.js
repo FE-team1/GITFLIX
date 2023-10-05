@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import OneMovie from '../../../components/oneMovie';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { get_nowPlayingMovie } from '../../../apis/get_Api';
+import { flexCenter, subtitle} from '../../../styles/common.style';
 
 const NowPlaying = () => {
     const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
@@ -13,6 +16,10 @@ const NowPlaying = () => {
     useEffect(() => {
         console.log(`nowPlayingMovie:`, nowPlayingMovie);
     }, [nowPlayingMovie]);
+
+    const goToScrollTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
         <S.Wrapper>
@@ -30,6 +37,7 @@ const NowPlaying = () => {
                     </>
                 );
             })}
+            <FontAwesomeIcon icon={faAngleUp} bounce size="3x" onClick={goToScrollTop} cursor="pointer" />
         </S.Wrapper>
     );
 };
@@ -44,9 +52,10 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-    margin: 1% 5%;
-    font-size: ${({ theme }) => theme.FONT_SIZE.large};
-    font-weight: ${({ theme }) => theme.FONT_WEIGHT.bold};
+    margin-top: 2%;
+    ${flexCenter};
+    ${subtitle}
+    
 `;
 
 const S = {
