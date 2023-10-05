@@ -7,6 +7,9 @@ import Carousel from "./components/carousel";
 import { Container } from "@mui/material";
 import { InView, useInView } from "react-intersection-observer";
 import { axiosInstance } from "../../apis/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+
 
 const MainPage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -20,6 +23,7 @@ const MainPage = () => {
   useEffect(() => {
     console.log(`movieList:`, movieList);
   }, [movieList]);
+
 
   const productFetch = () => {
     axiosInstance
@@ -45,6 +49,12 @@ const MainPage = () => {
     }
   }, [inView]);
 
+
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
   return (
     <>
       <Header movieList={movieList} setMovieList={setMovieList} />
@@ -68,6 +78,7 @@ const MainPage = () => {
           )}
           <div ref={ref}>안녕</div>
         </S.Wrapper>
+        <FontAwesomeIcon icon={faAngleUp} bounce size="3x" transform="right-470 up-40" onClick={goToScrollTop} cursor="pointer" />
       </Container>
     </>
   );
@@ -86,8 +97,3 @@ const S = {
   Wrapper,
 };
 
-// 무한스크롤 구현 방법
-// 1. react-query를 이용한 데이터 호출시 갯수 조정해서 일정 갯수 호출시 리랜더하면서 새로운 데이터를 호출하기
-//    - 하루를 투자해서 시도해봤지만 기존의 데이터 호출을 react-query 버전으로 바꿔야 하는데 실패해서 데이터 호출이 안되서 포기
-// 2. 스크롤 이벤트 감지해서 페이지 끝에 닿으면 닿는 것을 감지해서 추가 데이터를 받아오기
-// 3. intersection observer api 사용하기

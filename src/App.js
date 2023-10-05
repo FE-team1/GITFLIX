@@ -17,20 +17,6 @@ function App() {
     defaultOptions: {},
   });
 
-  // const LIMIT = 10;
-
-  // const fetchRep = async (page) => {
-  //   const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=###&page=${LIMIT}`);
-  //   return response.json();
-  // };
-
-  // const { data, isSuccess, hasNextPage, fetchNextPage, isFetchingNextPage } = useInfiniteQuery("repo", ({ pageParam = 1 }) => fetchRep(pageParam), {
-  //   getNextPageParam: (lastPage, allPages) => {
-  //     const nextPage = allPages.length + 1;
-  //     return nextPage;
-  //   },
-  // });
-  // development
   return (
     <QueryClientProvider client={queryClient}>
       <Suspense fallback={<Skeleton />}>

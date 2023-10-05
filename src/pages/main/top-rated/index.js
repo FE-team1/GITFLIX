@@ -3,6 +3,8 @@ import { get_popularMovie } from "../../../apis/popular.api";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
 import { get_topRatedMovie } from "../../../apis/top-rated.api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const TopRated = () => {
   const [topRatedMovie, setTopRatedMovie] = useState([]);
@@ -15,6 +17,10 @@ const TopRated = () => {
     console.log(`topRatedMovie:`, topRatedMovie);
   }, [topRatedMovie]);
 
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <S.Wrapper>
       <S.Title>Top-Rated Movies</S.Title>
@@ -25,6 +31,7 @@ const TopRated = () => {
           </>
         );
       })}
+      <FontAwesomeIcon icon={faAngleUp} bounce size="3x" onClick={goToScrollTop} cursor="pointer" />
     </S.Wrapper>
   );
 };

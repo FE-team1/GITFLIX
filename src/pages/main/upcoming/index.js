@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
 import { get_upComingMovie } from "../../../apis/upcoming.api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const UpComing = () => {
   const [upComingMovie, setUpComingMovie] = useState([]);
@@ -14,6 +16,10 @@ const UpComing = () => {
     console.log(`popularMovie:`, upComingMovie);
   }, [upComingMovie]);
 
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <S.Wrapper>
       <S.Title>Upcoming Movies</S.Title>
@@ -24,6 +30,7 @@ const UpComing = () => {
           </>
         );
       })}
+      <FontAwesomeIcon icon={faAngleUp} bounce size="3x" onClick={goToScrollTop} cursor="pointer" />
     </S.Wrapper>
   );
 };

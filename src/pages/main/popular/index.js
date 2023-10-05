@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { get_popularMovie } from "../../../apis/popular.api";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const Popular = () => {
   const [popularMovie, setPopularMovie] = useState([]);
@@ -14,6 +16,10 @@ const Popular = () => {
     console.log(`popularMovie:`, popularMovie);
   }, [popularMovie]);
 
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <S.Wrapper>
       <S.Title>Popular Movies</S.Title>
@@ -24,6 +30,7 @@ const Popular = () => {
           </>
         );
       })}
+      <FontAwesomeIcon icon={faAngleUp} bounce size="3x" onClick={goToScrollTop} cursor="pointer" />
     </S.Wrapper>
   );
 };
