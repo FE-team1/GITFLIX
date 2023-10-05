@@ -3,7 +3,11 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/global.style";
 import router from "./routes/router";
 import theme from "./styles/theme.style";
-import { QueryClient, QueryClientProvider, useInfiniteQuery } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 import { MuiSkeleton } from "./pages/main/components/skeleton";
 import { Suspense } from "react";
 import { Skeleton } from "@mui/material";
