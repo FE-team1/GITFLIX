@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import OneMovie from '../../../components/oneMovie';
-import { get_upComingMovie } from '../../../apis/upcoming.api';
+import { get_upComingMovie } from '../../../apis/get_Api';
 
 const UpComing = () => {
     const [upComingMovie, setUpComingMovie] = useState([]);

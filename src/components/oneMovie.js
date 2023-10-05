@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { get_image } from '../apis/image.api';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { Skeleton } from '@chakra-ui/react';
+import { get_image } from '../apis/get_Api';
 
 const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
     // const [posters, setPosters] = useState([]);
