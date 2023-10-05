@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { get_movieDetail } from "../../apis/detail.api";
 import { useSearchParams } from "react-router-dom";
-import { get_image } from "../../apis/image.api";
-import { get_video } from "../../apis/video.api";
 import styled from "styled-components";
 // import YouTube from "react-youtube";
+import { Container, Typography } from "@mui/material";
 import { Container, Typography } from "@mui/material";
 import Header from "../../components/layout/header";
 import Youtube from "react-youtube";

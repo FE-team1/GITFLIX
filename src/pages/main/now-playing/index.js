@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import { get_popularMovie } from "../../../apis/popular.api";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { get_nowPlayingMovie } from '../../../apis/get_Api';
 
 const NowPlaying = () => {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
 
   useEffect(() => {
-    get_popularMovie(setNowPlayingMovie);
-  }, []);
+    get_nowPlayingMovie(setNowPlayingMovie);
+}, []);
 
-  useEffect(() => {
-    console.log(`popularMovie:`, nowPlayingMovie);
-  }, [nowPlayingMovie]);
+useEffect(() => {
+    console.log(`nowPlayingMovie:`, nowPlayingMovie);
+}, [nowPlayingMovie]);
 
   const goToScrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

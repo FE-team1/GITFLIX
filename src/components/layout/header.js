@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { AiOutlineSearch } from "react-icons/ai";
-import { flexAlignCenter } from "../../styles/common.style";
-import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import styled from 'styled-components';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { flexAlignCenter } from '../../styles/common.style';
+import { useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,35 +15,48 @@ const Header = () => {
     }
   };
 
-  const goToHome = () => {
-    navigate("/");
-  };
+    const searchMovie = (e) => {
+        if (e.key === 'Enter') {
+            let keyword = e.target.value;
+            console.log(keyword);
+            navigate(`/search/?q=${keyword}`);
+        }
+    };
 
-  return (
-    <>
-      <S.Wrapper>
-        <S.Container>
-          <S.Logo src="img/githubicon.png" onClick={goToHome}></S.Logo>
-          <nav>
-            <S.Ul>
-              <li onClick={() => navigate("/now-playing")}>Now Playing</li>
-              <li onClick={() => navigate("/popular")}>Popular</li>
-              <li onClick={() => navigate("/top-rated")}>Top Rated</li>
-              <li onClick={() => navigate("/upcoming")}>Upcoming</li>
-            </S.Ul>
-          </nav>
+    const goToHome = () => {
+        navigate('/');
+    };
 
-          <S.SearchBox>
-            <S.Input placeholder="Search movie" onKeyPress={(e) => searchMovie(e)} />
-            <S.Icon>
-              <AiOutlineSearch size={30} />
-            </S.Icon>
-          </S.SearchBox>
-        </S.Container>
-      </S.Wrapper>
-      <Outlet />
-    </>
-  );
+    return (
+        <>
+            <S.Wrapper>
+                <S.Container>
+                    <S.Logo src="img/githubicon.png" onClick={goToHome}></S.Logo>
+                    <nav>
+                        <S.Ul>
+                            <li onClick={() => navigate('/now-playing')}>Now Playing</li>
+                            <li onClick={() => navigate('/popular')}>Popular</li>
+                            <li onClick={() => navigate('/top-rated')}>Top Rated</li>
+                            <li onClick={() => navigate('/upcoming')}>Upcoming</li>
+                        </S.Ul>
+                    </nav>
+                    {searchBox ? (
+                        <S.SearchBox>
+                            <S.Input placeholder="제목을 입력하세요" onKeyPress={(e) => searchMovie(e)} />
+                            <S.Icon>
+                                <AiOutlineSearch onClick={onClickSearch} size={30} />
+                            </S.Icon>
+                        </S.SearchBox>
+                    ) : (
+                        <S.Icon>
+                            <AiOutlineSearch onClick={onClickSearch} size={30} />
+                        </S.Icon>
+                    )}
+                </S.Container>
+            </S.Wrapper>
+            <Outlet />
+        </>
+    );
 };
 
 export default Header;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { get_popularMovie } from "../../../apis/popular.api";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { get_popularMovie } from "../../../apis/get_Api";
 
 const Popular = () => {
   const [popularMovie, setPopularMovie] = useState([]);

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { get_popularMovie } from "../../../apis/popular.api";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
 import { get_topRatedMovie } from "../../../apis/top-rated.api";
