@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import OneMovie from "../../../components/oneMovie";
-import { get_topRatedMovie } from "../../../apis/top-rated.api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { get_topRatedMovie } from "../../../apis/get_Api";
+import { flexCenter, subtitle } from "../../../styles/common.style";
 
 const TopRated = () => {
   const [topRatedMovie, setTopRatedMovie] = useState([]);
@@ -45,9 +46,9 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  margin: 1% 5%;
-  font-size: ${({ theme }) => theme.FONT_SIZE.large};
-  font-weight: ${({ theme }) => theme.FONT_WEIGHT.bold};
+  margin-top: 2%;
+  ${flexCenter};
+  ${subtitle}
 `;
 
 const S = {

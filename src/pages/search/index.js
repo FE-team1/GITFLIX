@@ -18,7 +18,6 @@ const SearchPage = () => {
   console.log(movieSearchList);
   return (
     <div>
-      <Header />
       <Wrapper>
         {movieSearchList.length === 0 ? (
           <NotFound />
