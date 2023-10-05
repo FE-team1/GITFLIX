@@ -4,6 +4,7 @@ import Header from "../../components/layout/header";
 import { useSearchParams } from "react-router-dom";
 import OneMovie from "../../components/oneMovie";
 import styled from "styled-components";
+import NotFound from "./components/NotFound";
 
 const SearchPage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -19,16 +20,18 @@ const SearchPage = () => {
     <div>
       <Header />
       <Wrapper>
-        {movieSearchList.length === 0
-          ? "Movie Not Found😥"
-          : movieSearchList.map(({ id, title, poster_path, overview, vote_average, backdrop_path }) => {
-              return (
-                <>
-                  <OneMovie movie_id={id} title={title} poster_path={poster_path} overview={overview} vote_average={vote_average} />
-                  {/* <Slider backdrop_path={backdrop_path} /> */}
-                </>
-              );
-            })}
+        {movieSearchList.length === 0 ? (
+          <NotFound />
+        ) : (
+          movieSearchList.map(({ id, title, poster_path, overview, vote_average, backdrop_path }) => {
+            return (
+              <>
+                <OneMovie movie_id={id} title={title} poster_path={poster_path} overview={overview} vote_average={vote_average} />
+                {/* <Slider backdrop_path={backdrop_path} /> */}
+              </>
+            );
+          })
+        )}
       </Wrapper>
     </div>
   );

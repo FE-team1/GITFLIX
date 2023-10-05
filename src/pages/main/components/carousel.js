@@ -128,6 +128,7 @@ const InnerBox = styled.div`
     img {
       transform: scale(1.02);
     }
+    cursor: pointer;
   }
 `;
 

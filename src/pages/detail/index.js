@@ -7,91 +7,99 @@ import styled from "styled-components";
 // import YouTube from "react-youtube";
 import { Container, Typography } from "@mui/material";
 import Header from "../../components/layout/header";
+import Youtube from "react-youtube";
+import { get_similarMovie } from "../../apis/similar.api";
+import OneMovie from "../../components/oneMovie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const DetailPage = () => {
   const [query, setQuery] = useSearchParams();
-  // const ref = useRef(null);
+
   const id = query.get("q");
   const [detailMovie, setDetailMovie] = useState([]);
+  const [similarMovie, setSimilarMovie] = useState([]);
   const [image, setImage] = useState({});
   const [video, setVideo] = useState({});
-  const imgUrl = "https://image.tmdb.org/t/p/w200";
-  // const { data } = useQuery(["movieDetail", id], () => get_movieDetail(id));
-
-  // const { videos } = data;
-
-  // const videoId =
-  //   videos.results.length > 0
-  //     ? videos.results.find((result) => result.type === "Trailer").key
-  //     : ""; // video Trailer 중에 가장 최신 동영상 가져오기
 
   useEffect(() => {
     console.log(id);
     get_movieDetail(setDetailMovie, id);
+    get_similarMovie(setSimilarMovie, id);
     get_image(setImage, id);
     get_video(setVideo, id);
     console.log(detailMovie);
-  }, []);
+    console.log(similarMovie);
+  }, [id]);
   const videos = video.results;
   console.log(videos);
 
-  // const trailer = videos && videos.filter((item) => item.name.includes("Teaser"));
-  // console.log(trailer);
-  // const key = trailer && trailer.map((tra) => tra.key);
-  // console.log(key);
-  // const TrailerKey = key && key.join();
-  // console.log(TrailerKey);
+  const goToScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
       <S.Wrapper>
-        <BackGround backdrop_path_src={detailMovie.backdrop_path}></BackGround>
-        {/* <Container maxWidth="xl">
-          <div>
-            <img src={`${imgUrl}${detailMovie.poster_path}`} width={300} />
-          </div>
-          <div></div>
-        </Container> */}
-        <img src={`${imgUrl}${detailMovie.poster_path}`} />
-        <br />
-        <br />
-        <br />
-        <Typography variant="h3" gutterBottom>
-          Title : {detailMovie.title}
-        </Typography>
-        <Typography variant="h5" gutterBottom>
-          Tagline : {detailMovie.tagline}
-        </Typography>
-        <Typography variant="h5" gutterBottom>
-          Rating: ⭐️{detailMovie.vote_average}
-        </Typography>
-        <Typography variant="h5" gutterBottom>
-          Release Date : {detailMovie.release_date}
-        </Typography>
-
-        <br />
-        <br />
-        <br />
-        <S.SectionInfo>
-          <Typography variant="h3" gutterBottom>
-            Overview
+        <Container maxWidth="xl">
+          <BackGround backdrop_path_src={detailMovie.backdrop_path}></BackGround>
+          <Youtube
+            videoId={videos && videos[0].key}
+            opts={{
+              width: "80%",
+              height: "640px",
+              playerVars: {
+                autoplay: 1,
+                modestbranding: 1,
+                loop: 1,
+                controls: 1,
+              },
+            }}
+          />
+          <br />
+          <S.TitleRating>
+            <Typography variant="h2" gutterBottom>
+              {detailMovie.title}
+            </Typography>
+            <Typography variant="h5" gutterBottom>
+              ⭐️ {Math.floor(detailMovie.vote_average)}
+            </Typography>
+          </S.TitleRating>
+          <Typography variant="h6" gutterBottom color={"gray"}>
+            Release {detailMovie.release_date}
           </Typography>
-          <Typography variant="h7" sx={{ lineHeight: 2 }}>
-            {detailMovie.overview}
+          <br />
+          <Typography variant="h5" gutterBottom>
+            {detailMovie.tagline}
           </Typography>
-        </S.SectionInfo>
+          <S.SectionInfo>
+            <Typography variant="h3" gutterBottom>
+              Overview
+            </Typography>
+            <S.OverViewBox>
+              <Typography variant="h7" sx={{ lineHeight: 2 }}>
+                {detailMovie.overview}
+              </Typography>
+            </S.OverViewBox>
+          </S.SectionInfo>
+        </Container>
         <br />
         <br />
         <br />
-        <S.SectionInfo>
-          <Typography variant="h4" gutterBottom>
-            popularity : {detailMovie.popularity}
-          </Typography>
-          <Typography variant="h4" gutterBottom>
-            Runtime : {detailMovie.runtime}minute
-          </Typography>
-        </S.SectionInfo>
+        <Typography variant="h4" gutterBottom color={"gray"}>
+          Similar Movie
+        </Typography>
       </S.Wrapper>
+      <S.SimilarWrapper>
+        {similarMovie.map(({ id, title, poster_path, overview, vote_average }) => {
+          return (
+            <>
+              <OneMovie movie_id={id} title={title} poster_path={poster_path} overview={overview} vote_average={vote_average} />
+            </>
+          );
+        })}
+      </S.SimilarWrapper>
+      <FontAwesomeIcon icon={faAngleUp} bounce size="3x" transform="right-470 up-40" onClick={goToScrollTop} cursor="pointer" />
     </>
   );
 };
@@ -105,7 +113,24 @@ const Wrapper = styled.div`
   max-width: 1500px;
 `;
 
-const SectionInfo = styled.div``;
+const SimilarWrapper = styled.div`
+  margin: 0 5%;
+
+  width: 100%;
+  max-width: 1500px;
+`;
+
+const TitleRating = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+`;
+
+const SectionInfo = styled.div`
+  margin-top: 50px;
+  margin-bottom: 50px;
+`;
 
 const Img = styled.div`
   width: 100%;
@@ -122,8 +147,15 @@ const BackGround = styled.div`
   opacity: 0.5;
 `;
 
+const OverViewBox = styled.div`
+  width: 80%;
+`;
+
 const S = {
   Wrapper,
   SectionInfo,
+  TitleRating,
+  OverViewBox,
   Img,
+  SimilarWrapper,
 };
