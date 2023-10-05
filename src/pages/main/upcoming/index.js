@@ -45,10 +45,10 @@ const UpComing = () => {
 export default UpComing;
 
 const Wrapper = styled.div`
-    margin: 0 5%;
-    max-width: 1460px;
-    padding-top: 100px;
-    width: 100%;
+  margin: 0 5%;
+  max-width: 1460px;
+  padding-top: 100px;
+  width: 100%;
 `;
 
 const Title = styled.p`
@@ -58,6 +58,6 @@ const Title = styled.p`
 `;
 
 const S = {
-    Wrapper,
-    Title,
+  Wrapper,
+  Title,
 };

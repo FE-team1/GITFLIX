@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import OneMovie from '../../../components/oneMovie';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import OneMovie from "../../../components/oneMovie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { get_nowPlayingMovie } from '../../../apis/get_Api';
 import { flexCenter, subtitle} from '../../../styles/common.style';
 
@@ -45,20 +46,19 @@ const NowPlaying = () => {
 export default NowPlaying;
 
 const Wrapper = styled.div`
-    margin: 0 5%;
-    max-width: 1460px;
-    padding-top: 100px;
-    width: 100%;
+  margin: 0 5%;
+  max-width: 1460px;
+  padding-top: 100px;
+  width: 100%;
 `;
 
 const Title = styled.p`
     margin-top: 2%;
     ${flexCenter};
-    ${subtitle}
-    
+    ${subtitle};
 `;
 
 const S = {
-    Wrapper,
-    Title,
+  Wrapper,
+  Title,
 };
