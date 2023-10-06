@@ -9,7 +9,7 @@ import { axiosInstance } from '../../apis/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { get_movieList } from '../../apis/get_Api';
-import { flexAlignCenter, flexCenter, title } from '../../styles/common.style';
+import { flexCenter, title } from '../../styles/common.style';
 
 const MainPage = () => {
     const [movieList, setMovieList] = useState([]);
@@ -70,7 +70,7 @@ const MainPage = () => {
                             </>
                         );
                     })}
-                    <div ref={ref}>안녕</div>
+                    <div ref={ref}></div>
                 </S.Wrapper>
                 <FontAwesomeIcon
                     icon={faAngleUp}
@@ -88,7 +88,8 @@ const MainPage = () => {
 export default MainPage;
 
 const Wrapper = styled.div`
-    margin: 0 5%;
+    text-align: center;
+    margin: 0 auto;
     max-width: 1460px;
     width: 100%;
 `;
