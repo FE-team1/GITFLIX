@@ -14,7 +14,6 @@ const TopRated = () => {
   }, []);
 
   useEffect(() => {
-    console.log(`topRatedMovie:`, topRatedMovie);
   }, [topRatedMovie]);
 
   const goToScrollTop = () => {

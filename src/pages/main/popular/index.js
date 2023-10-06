@@ -14,7 +14,6 @@ const Popular = () => {
     }, []);
 
     useEffect(() => {
-        console.log(`popularMovie:`, popularMovie);
     }, [popularMovie]);
 
     const goToScrollTop = () => {

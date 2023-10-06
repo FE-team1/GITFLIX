@@ -14,7 +14,6 @@ const NowPlaying = () => {
     }, []);
 
     useEffect(() => {
-        console.log(`nowPlayingMovie:`, nowPlayingMovie);
     }, [nowPlayingMovie]);
 
     const goToScrollTop = () => {

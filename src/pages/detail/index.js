@@ -19,16 +19,12 @@ const DetailPage = () => {
     const [video, setVideo] = useState({});
 
     useEffect(() => {
-        console.log(id);
         get_movieDetail(setDetailMovie, id);
         get_similarMovie(setSimilarMovie, id);
         get_image(setImage, id);
         get_video(setVideo, id);
-        console.log(detailMovie);
-        console.log(similarMovie);
     }, [id]);
     const videos = video.results;
-    console.log(videos);
 
     const goToScrollTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

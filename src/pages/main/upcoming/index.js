@@ -14,7 +14,6 @@ const UpComing = () => {
     }, []);
 
     useEffect(() => {
-        console.log(`popularMovie:`, upComingMovie);
     }, [upComingMovie]);
 
     const goToScrollTop = () => {

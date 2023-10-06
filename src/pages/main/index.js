@@ -21,7 +21,6 @@ const MainPage = () => {
     }, []);
 
     useEffect(() => {
-        console.log(`movieList:`, movieList);
     }, [movieList]);
 
     const productFetch = () => {
