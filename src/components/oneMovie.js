@@ -67,6 +67,7 @@ const MovieContainer = styled.div`
         }
         img {
             transform: scale(1.15);
+            opacity: 0.6;
         }
     }
 `;

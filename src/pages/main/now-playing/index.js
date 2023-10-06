@@ -81,11 +81,13 @@ const NowPlaying = () => {
 export default NowPlaying;
 
 const Wrapper = styled.div`
-  margin: 0 5%;
-  max-width: 1460px;
-  padding-top: 100px;
-  width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1460px;
+    padding-top: 100px;
+    width: 100%;
 `;
+
 
 const Title = styled.p`
   margin-top: 2%;

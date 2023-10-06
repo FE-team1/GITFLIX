@@ -39,7 +39,8 @@ const SearchPage = () => {
 export default SearchPage;
 
 const Wrapper = styled.div`
-    margin: 0 10%;
+    text-align: center;
+    margin: 0 auto;
     padding-top: 100px;
     width: 100%;
     max-width: 1500px;
