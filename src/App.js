@@ -4,7 +4,6 @@ import GlobalStyles from './styles/global.style';
 import router from './routes/router';
 import theme from './styles/theme.style';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
     console.log(process.env.NODE_ENV);

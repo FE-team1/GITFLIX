@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   position: fixed;
   z-index: 10;
   background-color: rgba(16,16,16, 0.7);
-`
+`;
 
 const Container = styled.div`
   ${flexAlignCenter}
@@ -111,3 +111,4 @@ const S = {
   SearchBox,
   Icon,
 };
+

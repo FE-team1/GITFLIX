@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 // import YouTube from "react-youtube";
-import { Container, Typography } from '@mui/material';
-import Youtube from 'react-youtube';
-import OneMovie from '../../components/oneMovie';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import { get_image, get_movieDetail, get_similarMovie, get_video } from '../../apis/get_Api';
+import { Container, Typography } from "@mui/material";
+import Youtube from "react-youtube";
+import OneMovie from "../../components/oneMovie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { get_image, get_movieDetail, get_similarMovie, get_video } from "../../apis/get_Api";
+
 
 const DetailPage = () => {
     const [query, setQuery] = useSearchParams();
