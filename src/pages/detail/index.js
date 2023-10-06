@@ -3,13 +3,11 @@ import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 // import YouTube from "react-youtube";
 import { Container, Typography } from "@mui/material";
-import Header from "../../components/layout/header";
 import Youtube from "react-youtube";
-import { get_similarMovie } from "../../apis/similar.api";
 import OneMovie from "../../components/oneMovie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { get_image, get_movieDetail, get_video } from "../../apis/get_Api";
+import { get_image, get_movieDetail, get_similarMovie, get_video } from "../../apis/get_Api";
 
 const DetailPage = () => {
   const [query, setQuery] = useSearchParams();
@@ -40,9 +38,7 @@ const DetailPage = () => {
     <>
       <S.Wrapper>
         <Container maxWidth="xl">
-          <BackGround
-            backdrop_path_src={detailMovie.backdrop_path}
-          ></BackGround>
+          <BackGround backdrop_path_src={detailMovie.backdrop_path}></BackGround>
           <Youtube
             videoId={videos && videos[0].key}
             opts={{
@@ -91,30 +87,15 @@ const DetailPage = () => {
         </Typography>
       </S.Wrapper>
       <S.SimilarWrapper>
-        {similarMovie.map(
-          ({ id, title, poster_path, overview, vote_average }) => {
-            return (
-              <>
-                <OneMovie
-                  movie_id={id}
-                  title={title}
-                  poster_path={poster_path}
-                  overview={overview}
-                  vote_average={vote_average}
-                />
-              </>
-            );
-          }
-        )}
+        {similarMovie.map(({ id, title, poster_path, overview, vote_average }) => {
+          return (
+            <>
+              <OneMovie movie_id={id} title={title} poster_path={poster_path} overview={overview} vote_average={vote_average} />
+            </>
+          );
+        })}
       </S.SimilarWrapper>
-      <FontAwesomeIcon
-        icon={faAngleUp}
-        bounce
-        size="3x"
-        transform="right-470 up-40"
-        onClick={goToScrollTop}
-        cursor="pointer"
-      />
+      <FontAwesomeIcon icon={faAngleUp} bounce size="3x" transform="right-470 up-40" onClick={goToScrollTop} cursor="pointer" />
     </>
   );
 };
