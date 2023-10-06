@@ -18,7 +18,6 @@ const OneMovie = ({ movie_id, title, poster_path, overview, vote_average }) => {
     }, []);
 
     const goToMovieDetail = () => {
-        console.log(movie_id);
         navigate(`/detail/?q=${movie_id}`);
     };
 

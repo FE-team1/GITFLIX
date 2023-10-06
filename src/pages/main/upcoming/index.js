@@ -17,9 +17,8 @@ const UpComing = () => {
     get_upComingMovie(setUpComingMovie);
   }, []);
 
-  useEffect(() => {
-    console.log(`popularMovie:`, upComingMovie);
-  }, [upComingMovie]);
+    useEffect(() => {
+    }, [upComingMovie]);
 
   const upcomingFetch = () => {
     axiosInstance

@@ -17,9 +17,8 @@ const Popular = () => {
     get_popularMovie(setPopularMovie);
   }, []);
 
-  useEffect(() => {
-    console.log(`popularMovie:`, popularMovie);
-  }, [popularMovie]);
+    useEffect(() => {
+    }, [popularMovie]);
 
   const popularFetch = () => {
     axiosInstance

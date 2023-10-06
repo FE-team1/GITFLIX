@@ -17,9 +17,8 @@ const NowPlaying = () => {
     get_nowPlayingMovie(setNowPlayingMovie);
   }, []);
 
-  useEffect(() => {
-    console.log(`nowPlayingMovie:`, nowPlayingMovie);
-  }, [nowPlayingMovie]);
+    useEffect(() => {
+    }, [nowPlayingMovie]);
 
   const nowPlayingFetch = () => {
     axiosInstance
